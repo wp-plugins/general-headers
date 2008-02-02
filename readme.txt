@@ -1,31 +1,36 @@
-=== General Headers ===
+=== General Headers & Footers ===
 Contributors: midrangeman
 Donate link: http://www.geekyramblings.org/plugins/donate/
-Tags: headers,html
-Requires at least: 2.1.0
-Stable tag: trunk
+Tags: headers,footers
+Requires at least: 2.2.0
+Stable tag: Trunk
 
-This plugin allows you to add arbitrary headers to all pages within a
-Wordpress site.
+This plugin will give you the ability to add generalized headers & footer HTML
+to all the pages in your blog.
+
+Note: The headers are added between the <HEAD> and </HEAD> tags, so they
+cannot be used to add text to the page.  It's intended to allow you to add
+meta data to the pages.  
+
+The footer entry is inserted into your blog just before the </BODY> tag, 
+as long as the theme you are using uses the correct Wordpress function
+calls.
 
 == Installation ==
 
 1. Upload the full directory into your wp-content/plugins directory
 2. Activate it in the Plugin options
-3. Add your headers to the options page.
 
 (pretty simple, eh?)
 
-== Options ==
+Use the options page to set the header & footers you want to use.
 
-1. Header contains the HTML headers that should appear at the top of every
-Wordpress page.
+NOTE: The headers & footers can be any arbitrary HTML (javascript included)
+so be very careful with what you set the values to.
 
 == Frequently Asked Questions == 
 
-= Works it with all WordPress versions? =
-
-It should, although it's only been tested on WordPress 2.3.1.
+None at the moment.
 
 == License ==
 
