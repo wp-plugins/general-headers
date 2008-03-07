@@ -3,7 +3,7 @@
 Plugin Name: General Header
 Plugin URI: http://www.geekyramblings.org/plugins/wp-tags-to-technorati/
 Description: Includes standard headers in your posts
-Version: 0.2
+Version: 0.3
 Author: David Gibbs
 Author URI: http://www.geekyramblings.org
 */
@@ -31,6 +31,7 @@ Author URI: http://www.geekyramblings.org
 Date		Rev	Modification
 12/23/07	0.1	Initital version	
  1/31/08	0.2	Added footer functionality
+ 3/06/08	0.3	Reworked admin page
 
 */
 
@@ -66,15 +67,18 @@ function genhdr_options_menu() {
 	<form method="post" action="options.php">
 	<?php wp_nonce_field('update-options'); ?>
 
-	<h3>Header:</h3><p/>
- <textarea name="genhdr_header" cols="80" rows="5"><?php echo get_option('genhdr_header'); ?></textarea></ <p/>
-
-	<p/>
-	<h3>Footer:</h3><p/>
- <textarea name="genhdr_footer" cols="80" rows="5"><?php echo get_option('genhdr_footer'); ?></textarea></ <p/>
-
+<table class="form-table">
+ <tr>
+        <th scope="row" valign="top">Header:</th>
+        <td><textarea name="genhdr_header" cols="80" rows="5"><?php echo get_option('genhdr_header'); ?></textarea></td>
+</tr>
+<tr>
+	<th scope="row" valign="top">Footer:</th>
+	<td><textarea name="genhdr_footer" cols="80" rows="5"><?php echo get_option('genhdr_footer'); ?></textarea></td>
+</tr>
+</table>
         <p class="submit">
-        <input type="submit" name="Submit" value="<?php _e('Update Options &raquo;') ?>" />
+        <input type="submit" name="Submit" value="Save Changes" />
         </p>
 	<input type="hidden" name="action" value="update" />
 	<input type="hidden" name="page_options" value="genhdr_header,genhdr_footer"/>
@@ -104,7 +108,7 @@ function genhdr_deactivate()
 
 add_option('genhdr_header', '<!-- this markup will go between the <head> and </head> tags on every page -->');
 add_option('genhdr_footer', '<!-- this markup will go just before the </body> tag on every page -->');
-add_option('genhdr_version', '0.1');
+add_option('genhdr_version', '0.3');
 add_filter('wp_head', 'genhdr_header');
 add_action('wp_footer', 'genhdr_footer',99);
 add_action('admin_menu', 'genhdr_menu');
