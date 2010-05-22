@@ -1,8 +1,9 @@
 === General Headers & Footers ===
 Contributors: midrangeman
-Donate link: http://www.geekyramblings.org/plugins/donate/
+Donate link: http://www.geekyramblings.net/plugins/donate/
 Tags: headers,footers
 Requires at least: 2.2.0
+Tested up to: 3.0
 Stable tag: Trunk
 
 This plugin will give you the ability to add generalized headers & footer HTML
@@ -31,6 +32,20 @@ so be very careful with what you set the values to.
 == Frequently Asked Questions == 
 
 None at the moment.
+
+== Change Log ==
+
+= 0.4 =
+* Cleaned up code, added "Tested up to"
+
+= 0.3 =
+* Reworked admint page
+
+= 0.2 =
+* Added footer capability
+
+= 0.1 =
+* Initial version
 
 == License ==
 

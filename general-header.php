@@ -1,12 +1,14 @@
 <?php
 /*
-Plugin Name: General Header
-Plugin URI: http://www.geekyramblings.org/plugins/wp-tags-to-technorati/
+Plugin Name: General Headers & Footers
+Plugin URI: http://www.geekyramblings.net/plugins/general-headers/
 Description: Includes standard headers in your posts
-Version: 0.3
+Version: 0.4
 Author: David Gibbs
-Author URI: http://www.geekyramblings.org
+Author URI: http://www.geekyramblings.net
 */
+
+$version="0.4";
 
 /*
 
@@ -26,18 +28,11 @@ Author URI: http://www.geekyramblings.org
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*
-
-Date		Rev	Modification
-12/23/07	0.1	Initital version	
- 1/31/08	0.2	Added footer functionality
- 3/06/08	0.3	Reworked admin page
-
-*/
-
 set_magic_quotes_runtime(0);
 
 function genhdr_header() {
+
+	public $version;
 
 	$header = get_option('genhdr_header');
 	$version = get_option('genhdr_version');
@@ -50,8 +45,9 @@ function genhdr_header() {
 
 function genhdr_footer() {
 
+	public $version;
+
 	$footer = get_option('genhdr_footer');
-	$version = get_option('genhdr_version');
 
 	echo "\n<!-- start general-header footer $version -->\n";
 	echo $footer;
@@ -94,8 +90,7 @@ function genhdr_menu(){
 
 function genhdr_activate()
 {
-        // Let's add some options
-	// add_option('genhdr_label', 'Technorati Tags');
+	// Nothing 
 
 }
 
@@ -108,14 +103,8 @@ function genhdr_deactivate()
 
 add_option('genhdr_header', '<!-- this markup will go between the <head> and </head> tags on every page -->');
 add_option('genhdr_footer', '<!-- this markup will go just before the </body> tag on every page -->');
-add_option('genhdr_version', '0.3');
 add_filter('wp_head', 'genhdr_header');
 add_action('wp_footer', 'genhdr_footer',99);
 add_action('admin_menu', 'genhdr_menu');
-
-// add_action('activate_wp-tags-to-technorati/wp-tags-to-technorati.php',
-// 	'genhdr_activate');
-// add_action('deactivate_wp-tags-to-technorati/wp-tags-to-technorati.php',
-// 	'genhdr_deactivate');
 
 ?>
