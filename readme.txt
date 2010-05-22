@@ -35,6 +35,9 @@ None at the moment.
 
 == Change Log ==
 
+= 0.5 =
+* Fixed a break
+
 = 0.4 =
 * Cleaned up code, added "Tested up to"
 

@@ -3,12 +3,12 @@
 Plugin Name: General Headers & Footers
 Plugin URI: http://www.geekyramblings.net/plugins/general-headers/
 Description: Includes standard headers in your posts
-Version: 0.4
+Version: 0.5
 Author: David Gibbs
 Author URI: http://www.geekyramblings.net
 */
 
-$version="0.4";
+$version="0.5";
 
 /*
 
@@ -32,10 +32,9 @@ set_magic_quotes_runtime(0);
 
 function genhdr_header() {
 
-	public $version;
+	global $version;
 
 	$header = get_option('genhdr_header');
-	$version = get_option('genhdr_version');
 
 	echo "\n<!-- start general-header header $version -->\n";
 	echo $header;
@@ -45,7 +44,7 @@ function genhdr_header() {
 
 function genhdr_footer() {
 
-	public $version;
+	global $version;
 
 	$footer = get_option('genhdr_footer');
 
